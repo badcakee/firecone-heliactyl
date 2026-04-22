@@ -1,0 +1,37 @@
+{
+  "name": "heliactyl",
+  "version": "1.7.0",
+  "description": "The best Pterodactyl client area.",
+  "main": "index.js",
+  "type": "module",
+  "author": "Heliactyl-Fixed",
+  "dependencies": {
+    "@prisma/adapter-pg": "^6.19.2",
+    "@prisma/client": "^6.19.2",
+    "axios": "^1.12.2",
+    "chalk": "^5.3.0",
+    "compression": "^1.8.1",
+    "connect-pg-simple": "^10.0.0",
+    "cron": "^4.4.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.18.2",
+    "express-ws": "^5.0.2",
+    "node-fetch": "^2.7.0",
+    "pg": "^8.16.3",
+    "yaml": "^2.8.1"
+  },
+  "scripts": {
+    "start": "node misc/prisma-generate.cjs && node index.js",
+    "dev": "node misc/prisma-generate.cjs && nodemon index.js",
+    "migrate": "npx prisma migrate deploy",
+    "postinstall": "node misc/prisma-generate.cjs"
+  },
+  "devDependencies": {
+    "@upstash/context7-mcp": "^1.0.33",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.19.2"
+  }
+}

@@ -1,0 +1,296 @@
+version: 1.7.0
+name: Heliactyl
+letter: H
+icon: https://example.com/icon.png
+theme: default
+timezone: Europe/Prague
+website:
+  port: 2000
+  debug: false
+  secret: CHANGE_ME_LONG_RANDOM_SECRET
+links:
+  support: https://discord.example.com # Support or Discord invite link used on fallback pages
+  docs: "https://example.com/docs"
+  tos: https://example.com/terms
+  privacy: https://example.com/privacy
+database: "postgresql://user:password@localhost:5432/heliactyl?schema=public"
+pterodactyl:
+  domain: https://panel.example.com/
+  key: ptla_000000000000000000000000000000000000000000000000000000
+  allowedNestId: 8 # Used by egg sync on startup
+
+packages:
+  import_enabled: true
+  default: "Starter"
+  list:
+    Starter:
+      ram: 2048
+      disk: 4096
+      cpu: 150
+      databases: 1
+      ports: 2
+      backups: 0
+      renewalCost: 250
+    Standard:
+      ram: 4096
+      disk: 5120
+      cpu: 250
+      databases: 2
+      ports: 3
+      backups: 0
+      renewalCost: 350
+    Performance:
+      ram: 6144
+      disk: 5120
+      cpu: 300
+      databases: 3
+      ports: 4
+      backups: 0
+      renewalCost: 450
+    Ultimate:
+      ram: 8192
+servercreation:
+  _comment: You can set how much it should cost to create a server here, the default
+    price is free.
+  cost: 0
+  limit: 0 # Global limit on servers per user (0 = unlimited)
+renewals:
+  status: true
+  delay: 48 # Hours 
+  deletion_delay: 168 # Hours after suspension before a server is deleted. Set to 0 to disable automatic deletion.
+whitelist:
+  _comment: This allows only specific people to be able to use the dashboard.
+  status: false
+  users:
+  - User ID
+logging:
+  status: true
+  webhook: https://discord.com/api/webhooks/CHANGE_ME/CHANGE_ME
+coins:
+  currency: "Coins"
+  daily_bonus: 50 # Amount of coins to give daily
+  transactions:
+    history_ttl: 30 # Days to keep transaction history
+    max_entries: 250
+antivpn:
+  _comment: For antivpn to work, generate an apikey on https://proxycheck.io/. If
+    you put no key, Heliactyl will disable antivpn.
+  status: true
+  _comment_keys: Provide one or more API keys. APIKey is kept for backwards
+    compatibility.
+  APIKeys:
+  - q55915-345530-v6627t-3943w1
+  APIKey: Proxycheck APIKey
+  whitelistedIPs:
+  - IP address
+  - IP address
+linkvertise:
+  enabled: false
+  userid: 'CHANGE_ME'
+  coins: 30
+  dailyLimit: 5
+  cooldown: 300
+  minTimeToComplete: 15
+  timeToExpire: 600
+  hardLimit: 5400 # Seconds before another link can be generated (1.5 hours)
+  blockedCountries:
+  - AF
+  - DZ
+  reducedRewards:
+    enabled: false
+    percentage: 67
+    countries:
+    - DZ
+    - BD
+  logging:
+    enabled: false
+  antiBypass:
+    enabled: true
+    token: 'CHANGE_ME'
+linkpays:
+  enabled: false
+  apiToken: 'CHANGE_ME'
+  coins: 100
+  dailyLimit: 1
+  minTimeToComplete: 25
+  hardLimit: 86400
+  # Optional: domains accepted in the referrer check (omit to use defaults)
+  allowedDomains:
+  - linkpays.in
+  - linkpays.io
+  - linkpays.com
+  # Optional: require referrer header to be present (default: false)
+  requireReferer: false
+  # Optional: disable IP mismatch checks (useful behind proxies/mobile networks)
+  ipCheck:
+    enabled: true
+  blockedCountries: []
+  reducedRewards:
+    enabled: false
+    percentage: 67
+    countries:
+    - DZ
+    - BD
+e2share:
+  enabled: false
+  apiToken: 'CHANGE_ME'
+  coins: 100
+  dailyLimit: 1
+  minTimeToComplete: 25
+  hardLimit: 86400
+  # Optional: domains accepted in the referrer check (omit to use defaults)
+  allowedDomains:
+  - e2share.in
+  # Optional: require referrer header to be present (default: false)
+  requireReferer: false
+  # Optional: disable IP mismatch checks (useful behind proxies/mobile networks)
+  ipCheck:
+    enabled: true
+  blockedCountries: []
+  reducedRewards:
+    enabled: false
+    percentage: 67
+    countries:
+    - DZ
+    - BD
+adlink:
+  enabled: false
+  apiToken: 'CHANGE_ME'
+  coins: 100
+  dailyLimit: 1
+  minTimeToComplete: 25
+  hardLimit: 86400
+  # Optional: domains accepted in the referrer check (omit to use defaults)
+  allowedDomains:
+  - adlink.click
+  # Optional: require referrer header to be present (default: false)
+  requireReferer: false
+  # Optional: disable IP mismatch checks (useful behind proxies/mobile networks)
+  ipCheck:
+    enabled: true
+  blockedCountries: []
+  reducedRewards:
+    enabled: false
+    percentage: 67
+    countries:
+    - DZ
+    - BD
+lootlabs:
+  enabled: false
+  apiToken: 'CHANGE_ME'
+  coins: 100
+  dailyLimit: 1
+  minTimeToComplete: 25
+  hardLimit: 86400
+  # Optional: domains accepted in the referrer check (omit to use defaults)
+  allowedDomains:
+  - loot-link.com
+  - lootlabs
+  # Optional: require referrer header to be present (default: false)
+  requireReferer: false
+  # Optional: disable IP mismatch checks (useful behind proxies/mobile networks)
+  ipCheck:
+    enabled: true
+  blockedCountries: []
+  reducedRewards:
+    enabled: false
+    percentage: 67
+    countries:
+    - DZ
+    - BD
+  tierId: 1
+  numberOfTasks: 3
+  theme: 1
+  antiBypass:
+    enabled: true
+    baseLink: 'https://loot-link.com/s?CHANGE_ME'
+cuty:
+  enabled: false
+  token: "CHANGE_ME"
+  coins: 20
+  dailyLimit: 1
+  cooldown: 0
+  minTimeToComplete: 10
+  timeToExpire: 0
+  # Optional: disable IP mismatch checks (useful behind proxies/mobile networks)
+  ipCheck:
+    enabled: true
+  blockedCountries: []
+  reducedRewards:
+    enabled: false
+    percentage: 67
+    countries:
+    - DZ
+category:
+  management: true
+  coins & resources: true
+  miscellaneous: true
+pages:
+  _comment: Category management
+  dashboard: true
+  your servers: true
+  account settings: true
+  _comment1: Category coins & resources
+  redeem coupon: true
+  earn: true
+  linkvertise: true
+  linkpays: true
+  e2share: true
+  adlink: true
+  lootlabs: true
+  cuty: true
+  _comment2: Category miscellaneous
+  panel: true
+  admin: true
+  logout: true
+api:
+  client:
+    coins:
+      enabled: true
+    api:
+      enabled: true
+      code: CHANGE_ME
+
+    bot:
+      token: CHANGE_ME
+      joinguild:
+        _comment: The Discord bot must be on these servers and have invite permissions.
+          Automatic guild joining will not work unless role packages are configured
+          correctly. You can always just set it to a random role & package so that
+          only this works.
+        enabled: false
+        guildid:
+          - '000000000000000000'
+      giverole:
+        _comment: The Discord bot must be on the server. Automatically assign a role
+          to the user when he logs in
+        enabled: false
+        guildid: '000000000000000000'
+        roleid: '000000000000000000'
+    passwordgenerator:
+      signup: true
+      _comment: Use this to disable signups
+      length: 16
+    allow:
+      newusers: true
+      regen: true
+      server:
+        create: true
+        modify: true
+        delete: true
+      overresourcessuspend: false
+    oauth2:
+      _comment: Go to https://discord.dev/ and create an application to set these
+        up.
+      id: 'CHANGE_ME'
+      secret: 'CHANGE_ME'
+      link: http://localhost:2000
+      callbackpath: /callback
+      ip:
+        trust x-forwarded-for: true
+        block: []
+        duplicate check: false
+    locations:
+      '1':
+        name: Germany
+
